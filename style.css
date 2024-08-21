@@ -1,0 +1,308 @@
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("assets/fonts/JetBrainsMono-VariableFont_wght.ttf")
+    format("truetype");
+}
+
+:root {
+  --almost-white: #e6e5ea;
+  --grey: #817d92;
+  --dark-grey: #24232c;
+  --very-dark-grey: #18171f;
+  --neon-green: #a4ffaf;
+  --red: #f64a4a;
+  --orange: #fb7c58;
+  --yellow: #f8cd65;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "JetBrains Mono";
+  background-color: var(--very-dark-grey);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.heading-lg {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.heading-md {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.body {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.bg-red {
+  background-color: var(--red);
+}
+
+.bg-orange {
+  background-color: var(--orange);
+}
+
+.bg-yellow {
+  background-color: var(--yellow);
+}
+
+.bg-green {
+  background-color: var(--neon-green);
+}
+.title {
+  color: var(--grey);
+  margin-bottom: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 33.75rem;
+
+  .password {
+    padding: 1.25rem 2rem;
+    color: var(--almost-white);
+    background-color: var(--dark-grey);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .settings {
+    padding: 1.25rem 2rem;
+    color: var(--almost-white);
+    background-color: var(--dark-grey);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .length {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      p:last-child {
+        color: var(--neon-green);
+      }
+    }
+
+    .slider,
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+    }
+
+    .slider {
+      width: 100%;
+      height: 0.5rem;
+      background-color: var(--neon-green);
+      margin-bottom: 2rem;
+    }
+
+    .slider::-webkit-slider-runnable-track {
+      border: none;
+      width: 100%;
+      height: 0.5rem;
+      background: var(--very-dark-grey);
+    }
+
+    .slider::-webkit-slider-thumb {
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 50%;
+      cursor: pointer;
+      background: var(--almost-white);
+      margin-top: -0.625rem;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .slider::-webkit-slider-thumb:hover {
+      background: var(--very-dark-grey);
+      border: 1px solid var(--neon-green);
+    }
+
+    .checks {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      position: relative;
+      margin-bottom: 2rem;
+
+      .check-group {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        label {
+          font-size: 1.125rem;
+          cursor: pointer;
+          margin-left: 2.5rem;
+        }
+
+        input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+        }
+
+        /* Create a custom checkbox */
+        .chk {
+          position: absolute;
+          top: 0.215rem;
+          left: 0;
+          height: 1.25rem;
+          width: 1.25rem;
+          background-color: #eee;
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        input:checked ~ .chk {
+          background-color: var(--neon-green);
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .chk:after {
+          content: url("./assets/images/icon-check.svg");
+          display: none;
+          position: absolute;
+          top: -1rem;
+          right: 0.125rem;
+        }
+
+        /* Show the checkmark when checked */
+        input:checked ~ .chk:after {
+          display: block;
+        }
+      }
+    }
+
+    .strength {
+      width: 100%;
+    }
+
+    .indicator {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: var(--very-dark-grey);
+      color: var(--almost-white);
+      text-transform: uppercase;
+
+      div {
+        display: flex;
+        gap: 0.5rem;
+
+        span {
+          width: 0.625rem;
+          height: 1.625rem;
+          border: 1px solid var(--almost-white);
+        }
+      }
+    }
+
+    .indicator.hidden {
+      display: none;
+    }
+
+    .btn-generate {
+      background-color: var(--neon-green);
+      width: 100%;
+      padding: 1.125rem;
+      margin-top: 2rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background-color: transparent;
+        border: 1px solid var(--neon-green);
+        color: var(--neon-green);
+      }
+      span:first-child {
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.btn-generate:hover path {
+  fill: var(--neon-green);
+}
+
+.btn-generate:disabled {
+  color: var(--grey);
+  background-color: var(--very-dark-grey) !important;
+}
+
+.btn-generate:disabled path {
+  fill: var(--grey);
+}
+
+.btn-generate:disabled:hover {
+  cursor: not-allowed;
+  color: var(--grey) !important;
+  background-color: var(--dark-grey);
+}
+
+.icon-copy {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 400px) {
+  .title {
+    font-size: 1rem;
+    margin-top: 4rem;
+    margin-bottom: 0;
+  }
+
+  .card {
+    width: 100%;
+    padding: 1rem;
+  }
+  .heading-lg {
+    font-size: 1.5rem;
+  }
+
+  .body {
+    font-size: 1rem;
+  }
+
+  .checks label {
+    font-size: 1rem !important;
+  }
+
+  .settings {
+    padding: 1rem !important;
+  }
+
+  .check-group {
+    .chk:after {
+      top: -0.5rem !important;
+    }
+  }
+}

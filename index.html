@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+  <title>Frontend Mentor | Password generator app</title>
+</head>
+
+<body>
+
+  <h1 class="heading-md title">Password Generator</h1>
+
+  <div class="card">
+    <div class="password heading-lg">
+      <p class="pass-text"></p>
+      <img src="./assets/images/icon-copy.svg" class="icon-copy">
+    </div>
+    <div class="settings heading-lg">
+      <div class="length">
+        <p class="body">Character Length</p>
+        <p id="length">6</p>
+      </div>
+      <input type="range" min="6" max="20" value="6" class="slider" id="slider">
+      <div class="checks">
+        <div class="check-group">
+          <input type="checkbox" name="uppers" id="uppers">
+          <span class="chk"></span>
+          <label for="uppers">Include Uppercase Letters</label>
+        </div>
+        <div class="check-group">
+          <input type="checkbox" name="lowers" id="lowers">
+          <span class="chk"></span>
+          <label for="lowers">Include Lowercase Letters</label>
+        </div>
+        <div class="check-group">
+          <input type="checkbox" name="numbers" id="numbers">
+          <span class="chk"></span>
+          <label for="numbers">Include Numbers</label>
+        </div>
+        <div class="check-group">
+          <input type="checkbox" name="symbols" id="symbols">
+          <span class="chk"></span>
+          <label for="symbols">Include Symbols</label>
+        </div>
+      </div>
+      <div class="strength">
+        <div class="indicator">
+          <p class="body">Strength</p>
+          <div>
+            <p class="body"></p>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="indicator red hidden">
+          <p class="body">Strength</p>
+          <div>
+            <p class="body">TOO WEAK!</p>
+            <span class="bg-red"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="indicator orange hidden">
+          <p class="body">Strength</p>
+          <div>
+            <p class="body">WEAK!</p>
+            <span class="bg-orange"></span>
+            <span class="bg-orange"></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="indicator yellow hidden">
+          <p class="body">Strength</p>
+          <div>
+            <p class="body">MEDIUM</p>
+            <span class="bg-yellow"></span>
+            <span class="bg-yellow"></span>
+            <span class="bg-yellow"></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="indicator green hidden">
+          <p class="body">Strength</p>
+          <div>
+            <p class="body">STRONG</p>
+            <span class="bg-green"></span>
+            <span class="bg-green"></span>
+            <span class="bg-green"></span>
+            <span class="bg-green"></span>
+          </div>
+        </div>
+      </div>
+      <button class="btn-generate" disabled>
+        <span class="body">Generate</span>
+        <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#24232C" d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>
